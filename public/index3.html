@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="سایت ،یادبود، مرحوم ، محمدرضا فرخ،webgl، mrfarokh،mohammad reza farrokh" />
+	<meta name="description" content="سایت یادبود مرحوم محمدرضا فرخ" />
+    <title>  Mohmmad Reza Farrokh Memorial Website</title>
+    
+
+    
+    <link rel="stylesheet" href="http://mrfarokh.ir/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="http://mrfarokh.ir/css/bootstrap-rtl.css">
+    
+    <!-- Babylon.js -->
+     <script src="https://sebodeweb.ir/3dshow/js/jquery.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/bootstrap.min.js"></script>
+    <script src="https://sebodeweb.ir/js/pep.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/dat.gui.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/ammo.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/cannon.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/Oimo.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/validator.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/earcut.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/babylon.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/babylon.inspector.bundle.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/babylonjs.materials.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/babylonjs.proceduralTextures.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js//babylonjs.postProcess.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/babylonjs.loaders.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/babylonjs.serializers.min.js"></script>
+    <script src="https://sebodeweb.ir/3dshow/js/babylon.gui.min.js"></script>
+    <style type="text/css">
+        html,
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            font-family:Arial !important;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        #control {
+            padding-top: 0px;
+            bottom: 0;
+            background: #ff3333;
+            width: 10%;
+
+            height: 100%;
+            z-index: 2020;
+            position: fixed;
+            opacity: 0.8;
+            font-weight: bold;
+            color: white;
+            display: none;
+        }
+
+        #control2 {
+            padding-top: 0px;
+            bottom: 0;
+            background: #065f4b;
+            width: 100%;
+            color: white;
+            text-align: center;
+            height: 5%;
+            z-index: 2020;
+            position: fixed;
+            opacity: 0.8;
+            font-weight: bold;
+            color: white;
+            display: block;
+        }
+
+        .materialbase {
+
+            margin: 10px;
+            margin-top: 10%;
+            height: 10%;
+            margin-right: 8%;
+            border: 4px solid white;
+            border-radius: 5px
+        }
+
+        #material1 {
+            background-color: #808080;
+
+        }
+
+        #material2 {
+            background-color: #ffff00;
+
+        }
+
+        #material3 {
+            background-color: #ff751a;
+
+        }
+
+        #header {
+            display: none;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body dir="ltr">
+    <div class="" id="header">
+        <div class="" id="top">
+        </div>
+        <div class="container01">
+            <!--<div id="logo" class="col-sm-6">
+                <img class="img-responsive" src="image/logo01.jpg" alt=" ">
+            </div>-->
+            <!--<a class="navbar-brand" href="/"><img src="image/logo01.jpg" class="img-responsive"></a>-->
+            <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+                <a href="#" id="baselink02" class="navbar-brand d-flex  mr-auto logo-kadr "><img src="theme/logo01.jpg"
+                        class="img-responsive"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse menu-kadr" id="collapsingNavbar3">
+                    <ul class="navbar-nav w-100 justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact" href="#"> Contact Us </a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" id="gallery" href="#" onclick="return false;">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="khaterat" href="#"> Biography </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link baselink" id="baselink" href="#">Main Page </a>
+                        </li>
+                        
+
+                    </ul>
+                    <!--<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+                        <li class="nav-item">
+                           <div style="background-color:#49bcb1" ></div>
+                        </li>
+
+                    </ul>-->
+
+                </div>
+                <div class=" share-kadr mr-auto hidden-sm hidden-xs">
+                    <div class="  mr-auto" id="share-kadr">
+                        <img src="theme/share.png" class="img-responsive" style="margin-right:2px;float:right">
+                        <p>
+                           Follow Us On Social Media
+                        </p>
+                    </div>
+                    <div class="  mr-auto" style=" width:150px; height:50px;background-color:#efefef">
+                         <a href="#">     <img src="/theme/telegram.png" class="img-responsive" style="padding-right:30px;padding-top:5px;float:right"></a>
+      <a href="https://www.instagram.com/mrfarokh.ir"> 
+                        <img src="/theme/instagram.png" target="_blank" class="img-responsive" style="padding-right:20px;padding-top:5px;float:right" ></a>
+                    </div>
+                    <!--end share kadr-->
+                </div>
+            </nav>
+            <!--<div id="mahdi" class="col-sm-6 hidden-xs">0
+                <img class="img-responsive" src="image/mahdi.jpg" alt=" ">
+            </div>-->
+        </div>
+        <!--end ofcontainer01-->
+    </div>
+    <!---end header-->
+    <div id="control">
+
+        <div class="materialbase" id="material1"></div>
+
+        <div class="materialbase" id="material2"></div>
+
+        <div class="materialbase" id="material3"></div>
+    </div>
+    <div id="control2">  <a class="nav-link baselink" id="" href="http://sebodeweb.ir/" target="_blank" style="text-decoration: none;color:white"> Developed by Sebodeweb(Mohammad Ali Farrokh)</a>
+   </div>
+
+    <canvas id="renderCanvas"></canvas>
+    <script>
+        function galleryA(box,x2,y2,z2) {
+            
+            const startFrame = 0;
+            const endFrame = 60;
+            const frameRate = 60;
+
+            const xSlide = new BABYLON.Animation("xSlide", "position.x", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+              const xSlide2 = new BABYLON.Animation("xSlide2", "position.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+              const xSlide3 = new BABYLON.Animation("xSlide3", "position.z", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+
+            const keyFrames = []; 
+
+    keyFrames.push({
+        frame: startFrame,
+        value: x2
+    });
+
+    keyFrames.push({
+        frame: endFrame,
+        value: box.position.x
+    });
+const keyFrames2 = []; 
+
+    keyFrames2.push({
+        frame: startFrame,
+        value: y2
+    });
+
+    keyFrames2.push({
+        frame: endFrame,
+        value: box.position.y
+    });
+     const keyFrames3 = []; 
+
+    keyFrames3.push({
+        frame: startFrame,
+        value: z2
+    });
+
+    keyFrames3.push({
+        frame: endFrame,
+        value: box.position.z
+    });
+
+    xSlide.setKeys(keyFrames);
+    xSlide2.setKeys(keyFrames2);
+    xSlide3.setKeys(keyFrames3);
+
+    box.animations.push(xSlide);
+    box.animations.push(xSlide2);
+    box.animations.push(xSlide3);
+
+            //backwards animation
+            scene.beginAnimation(box, endFrame, startFrame, false);
+            
+        }
+    </script>
+    <script>
+        var canvas = document.getElementById("renderCanvas");
+        var box;
+        var TV;
+        var narde;
+        var narde02;
+        var gallerynum=1;
+        var gallerynum2=1;
+        var createScene = function () {
+            //loading function start**************************************************************************************
+            var advancedTexture;
+            var motor;
+            var persent01 = 0;
+
+            //test loading***********************************************
+            BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
+                if (document.getElementById("customLoadingScreenDiv")) {
+                    // Do not add a loading screen if there is already one
+                    document.getElementById("customLoadingScreenDiv").style.display = "initial";
+                    return;
+                }
+                this._background = new BABYLON.GUI.Rectangle();
+                this._background.width = 1;
+                this._background.height = 1;
+                this._background.background = "#de6e84";
+                this._loadingDiv = document.createElement("div");
+                this._loadingDiv.id = "customLoadingScreenDiv";
+                this._loadingDiv.innerHTML = "<div id='logodiv'><img src='image/finish01.png' alt=''/></div>" +
+                    '<p id="div0">0%<p>';
+                var customLoadingScreenCss = document.createElement('style');
+                customLoadingScreenCss.type = 'text/css';
+                customLoadingScreenCss.innerHTML = `
+    #customLoadingScreenDiv{
+        background-color: #de6e84;
+        background-image:url('image/imam.jpg');
+        background-position: center;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+        color: white;
+        font-size:50px;
+        text-align:center;
+    }
+     #customLoadingScreenDiv p{
+        background-color: #065f4b;
+        color: white;
+        font-size:25px;
+        text-align:center;
+         opacity: 0.7;
+    }
+    #logodiv
+    {
+    margin:0 auto;
+    width:30%;
+    height:50%;
+       
+    }
+     #logodiv img
+    {
+   
+    width:80%;
+   
+       
+    }
+    `;
+                document.getElementsByTagName('head')[0].appendChild(customLoadingScreenCss);
+                this._resizeLoadingUI();
+                window.addEventListener("resize", this._resizeLoadingUI);
+                document.body.appendChild(this._loadingDiv);
+            };
+
+            BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function () {
+var load01=5;
+var end01=false;
+mycode();
+
+function mycode() {
+load01=load01+2;
+ $('#div0').html('Loading Images...'+load01+'%' );
+ scene.executeWhenReady(() => {
+                    document.getElementById("customLoadingScreenDiv").style.display = "none";
+                 //   var audio = new Audio('res/imam.mp3');
+                 
+                console.log("scene is now loaded");
+//audio.play();
+//var music = new BABYLON.Sound("Violons", "res/imam.mp3", scene, null, { loop: false, autoplay: true });
+end01=true;
+                });
+                if(load01>98)
+                {
+                     document.getElementById("customLoadingScreenDiv").style.display = "none";
+                     end01=true;
+                }
+          if(end01==false)  
+          {
+               
+
+          
+
+setTimeout(mycode, 500);
+}
+else
+{
+    
+       // var audio = new Audio('res/imam.mp3');
+                 
+             //   audio.play();
+  
+}
+};
+ 
+
+               
+                console.log("scene is now loaded");
+            }
+
+            //loading end**************************************************************************************
+            var scene = new BABYLON.Scene(engine);
+            var meshTask;
+            //Adding a light
+            var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(20, 20, 100), scene);
+           // light.position=new BABYLON.Vector3(0,10, 0);
+            //new light
+            var light5 = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
+            light5.diffuse = new BABYLON.Color3(0.95, 0.95, 0.67);
+            light5.specular = new BABYLON.Color3(0.93, 0.95, 0.64);
+            light5.groundColor = new BABYLON.Color3(0.47, 0.47, 0.47);
+            var ground = BABYLON.Mesh.CreateGround("ground", 12, 12, 2, scene);
+            ground.position = new BABYLON.Vector3(0, 0.1, -3);
+            ground.getBoundingInfo().boundingBox.scale(1);
+           // ground.showBoundingBox = true;
+            ground.checkCollisions = true;
+            ground.checkCollisions = true;
+            //new light end
+            //light2.position = new BABYLON.Vector3(0, 5, 5);
+            //Adding an Arc Rotate Camera
+            
+            var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
+            camera.rotation.x = 0; //rotation around x axis
+            camera.rotation.y = 2.9;  //rotation around y axis
+            camera.rotation.z = 0;
+            camera.position.x = -25;
+            camera.position.y = 6;
+            camera.position.z = 68;
+            camera.minZ = 0.3;
+            scene.collisionsEnabled = true;
+camera.checkCollisions = true;
+            camera.collisionRadius = new BABYLON.Vector3(0.1, 0.1, 0.1);
+            box = BABYLON.Mesh.CreateBox("box", 0.5, scene);
+            box.position = new BABYLON.Vector3(0, 0.7, -3);
+            //box data
+             box2 = BABYLON.Mesh.CreateBox("box1", 0.5, scene);
+             box3 = BABYLON.Mesh.CreateBox("box1", 0.5, scene);
+             box4 = BABYLON.Mesh.CreateBox("box1", 0.5, scene);
+             box5 = BABYLON.Mesh.CreateBox("box1", 0.5, scene);
+             var box2Material = new BABYLON.StandardMaterial("bx2m", scene);
+             box2Material.diffuseTexture = new BABYLON.Texture("image/back.jpg", scene);
+             
+              var box3Material = new BABYLON.StandardMaterial("bx2m", scene);
+              box3Material.diffuseTexture = new BABYLON.Texture("image/next.jpg", scene);
+              box2.material=box2Material;
+              box3.material=box3Material;
+               box4.material=box3Material;
+              box5.material=box2Material;
+            box2.position = new BABYLON.Vector3(1.83, 0.81, -1.068);
+             box3.position = new BABYLON.Vector3(2.28, 0.81, -1.068);
+              box4.position = new BABYLON.Vector3(-2.38, 0.4, -1.198);
+             box5.position = new BABYLON.Vector3(-2.642, 0.4, -1.198);
+            box2.scaling.x = 0.1;
+            box2.scaling.y = 0.3;
+            box2.scaling.z = 0.01;
+           box4.scaling.x = 0.05;
+            box4.scaling.y = 0.15;
+            box4.scaling.z = 0.01;
+           
+              
+           
+            box3.scaling = box2.scaling;
+             box4.scaling = box4.scaling
+              box5.scaling = box4.scaling
+            
+            box3.actionManager = new BABYLON.ActionManager(scene);
+             box3.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+               gallerynum++;
+                 if(gallerynum>17)
+                 {
+                     gallerynum=17;
+                 }
+                 scene.getMaterialByName("monitor").diffuseTexture = new BABYLON.Texture("image/gallery/"+gallerynum+".jpg", scene);
+            
+             }));
+              box2.actionManager = new BABYLON.ActionManager(scene);
+             box2.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+                 gallerynum--;
+                 if(gallerynum<=0)
+                 {
+                     gallerynum=1;
+                 }
+                 scene.getMaterialByName("monitor").diffuseTexture = new BABYLON.Texture("image/gallery/"+gallerynum+".jpg", scene);
+             }));
+              box4.actionManager = new BABYLON.ActionManager(scene);
+             box4.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+               gallerynum2++;
+                 if(gallerynum2>3)
+                 {
+                     gallerynum2=3;
+                 }
+                 scene.getMaterialByName("narde").diffuseTexture = new BABYLON.Texture("image/gallery/pdf/en/"+gallerynum2+".jpg", scene);
+            
+             }));
+              box5.actionManager = new BABYLON.ActionManager(scene);
+             box5.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+                 gallerynum2--;
+                 if(gallerynum2<=0)
+                 {
+                     gallerynum2=1;
+                 }
+                 scene.getMaterialByName("narde").diffuseTexture = new BABYLON.Texture("image/gallery/pdf/en/"+gallerynum2+".jpg", scene);
+             }));
+              box2.isVisible = false;
+                 box3.isVisible = false;
+                 box4.isVisible = false;
+                 box5.isVisible = false;
+                 
+            // camer limit
+            camera.lowerRadiusLimit = 1;
+            camera.upperRadiusLimit = 1.1;
+            camera.wheelDeltaPercentage = 0.05;
+            camera.lowerAlphaLimit = -Math.PI / 2 - Math.PI / 16;
+            camera.upperAlphaLimit = - Math.PI / 2 + Math.PI / 16;
+            camera.lowerBetaLimit = Math.PI / 2 - Math.PI / 16;
+            camera.upperBetaLimit = Math.PI / 2 + Math.PI / 4;
+            //camera limit
+            //sky
+            /*var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+        var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+        skyboxMaterial.backFaceCulling = false;
+        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
+        skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+        skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+        skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+        skybox.material = skyboxMaterial;*/
+            //end sky
+            camera.attachControl(canvas, true);
+            camera.lockedTarget = box;
+            box.isVisible = false;
+            camera.setPosition(new BABYLON.Vector3(0, 3, -4));
+            //gddg
+            var cam;
+            var targetEndPos;
+            var camEndPos;
+            var speed = 45;
+            var frameCount = 200;
+            var ease = new BABYLON.CubicEase();
+            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
+            cam = scene.activeCamera;
+            targetEndPos = new BABYLON.Vector3(0, 0, 0);
+            camEndPos = new BABYLON.Vector3(25, 5, 50);
+            console.log("scd.  cam.position: ", cam.position);
+            console.log("scd.  camEndPos: ", camEndPos);
+            console.log("scd.  speed: ", speed);
+            console.log("scd.  frameCount: ", frameCount);
+            
+            // console.log("actp.  frameCount: ", frameCount);
+            // console.log("actp.  newPos: ", newPos);
+            // BABYLON.Animation.CreateAndStartAnimation('at4', cam, 'position', speed, frameCount, cam.position, camEndPos, 0, ease);
+            //BABYLON.Animation.CreateAndStartAnimation('at5', cam, 'target', speed, frameCount, cam.target, targetEndPos, 0, ease);
+            console.log("setCamDefault run");
+            //end
+            camera.attachControl(canvas, false);
+
+
+           // scene.clearColor = new BABYLON.Color3(0.74, 0.74, 0.74);
+            scene.clearColor =BABYLON.Color3.FromHexString("#9cdbff");
+            engine.displayLoadingUI();
+
+            //engine.loadingScreen = new loadingScreen(scene);
+            // engine.displayLoadingUI();
+
+            var assetsManager = new BABYLON.AssetsManager(scene);
+            //tv***********************************************************
+            BABYLON.SceneLoader.ImportMesh("", "res/", "tv.babylon", scene, function (newMeshes) {
+        // Set the target of the camera to the first imported mesh
+        //newMeshes[0].setEnabled(false);
+        // posFinder01=newMeshes[0];
+        // list.push(newMeshes[0]);
+        TV = newMeshes[0];
+        TV.isVisible = false;
+        //newMeshes[0].position = new BABYLON.Vector3(0,-200, 0);
+       
+        });
+         BABYLON.SceneLoader.ImportMesh("", "res/", "narde.babylon", scene, function (newMeshes) {
+        // Set the target of the camera to the first imported mesh
+        //newMeshes[0].setEnabled(false);
+        // posFinder01=newMeshes[0];
+        // list.push(newMeshes[0]);
+        narde = newMeshes[0];
+        narde.isVisible = false;
+        newMeshes[0].position = new BABYLON.Vector3(-8.85,0.43, -3.98);
+       
+        });
+        BABYLON.SceneLoader.ImportMesh("", "res/", "narde02.babylon", scene, function (newMeshes) {
+        // Set the target of the camera to the first imported mesh
+        //newMeshes[0].setEnabled(false);
+        // posFinder01=newMeshes[0];
+        // list.push(newMeshes[0]);
+        narde02 = newMeshes[0];
+        narde02.isVisible = false;
+       // newMeshes[0].position = new BABYLON.Vector3(-8.85,0.43, -3.98);
+       newMeshes[0].actionManager = new BABYLON.ActionManager(scene);
+             newMeshes[0].actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+               window.open("https://www.instagram.com/mrfarokh.ir",'_blank');
+             }));
+        });
+         
+            //end tv*******************************************************
+              // TV = assetsManager.addMeshTask("skull task", "", "res/", "tv.babylon");
+            //TV.setEnable(false);
+            meshTask = BABYLON.SceneLoader.ImportMesh(
+                "",
+                "res/",
+                "7-6.babylon",
+                scene,
+                function(newMeshes) {
+                    //   camera.lowerRadiusLimit = 20;
+                    //  camera.upperRadiusLimit = 150;
+                    // camera.wheelDeltaPercentage = 0.1;
+                     meshTask = newMeshes[0];
+                    //scene.createDefaultCameraOrLight(true, true, true);
+                    // scene.createDefaultEnvironment();
+                    /* var helper = scene.createDefaultEnvironment({
+                         //  enableGroundShadow: true
+                     });
+                     helper.setMainColor(BABYLON.Color3.Gray());
+                     helper.ground.position.y += 0.01;*/
+                    // scene.activeCamera.alpha = Math.PI / 2;
+                    engine.hideLoadingUI();
+                    document.getElementById("control").style.display = "none";
+                    document.getElementById("control2").style.display = "block";
+                    document.getElementById("header").style.display = "block";
+                    // document.getElementById("renderCanvas").style.height = "80%";
+
+                }
+                ,
+                function (evt) {
+                    // alert("ali");
+                    // onProgress
+                    var loadedPercent = 0;
+                    if (evt.lengthComputable) {
+                        loadedPercent = (evt.loaded * 100 / evt.total).toFixed();
+                    } else {
+                        var dlCount = evt.loaded / (1024 * 1024);
+                        loadedPercent = Math.floor(dlCount * 100.0) / 100.0;
+                    }
+                    //alert(loadedPercent);
+                    // assuming "loadingScreenPercent" is an existing html element
+
+
+                    // $('#div0').html('persent'+loadedPercent);
+
+                    persent01 = loadedPercent;
+                    $('#div0').html('Loading 3d Website....' + '%' + loadedPercent);
+                    try {
+                        //document.getElementById("customLoadingScreenDiv").style.opacity = 0.2 + (parseFloat(loadedPercent) / 100);
+                    } catch (ex) {
+
+                    }
+
+                    //document.getElementById("div0").innerHTML = loadedPercent;
+                    console.log("scene is now loaded: %" + loadedPercent);
+                    if (loadedPercent == 100) {
+                        setTimeout('', 5000);
+                        
+                        engine.hideLoadingUI();
+                        scene.executeWhenReady(() => {
+                            document.getElementById("control").style.display = "none";
+                        });
+                        
+
+
+                    }
+                }
+            );
+          /*  boxsh = BABYLON.Mesh.CreateBox("boxsh", 0.5, scene);
+boxsh.position = new BABYLON.Vector3(0,-0.5,0.2);
+boxsh.material=box2Material;
+boxsh.scaling.x = 20;
+boxsh.scaling.y =4;
+boxsh.scaling.z = 1;
+            var shadowGenerator00 = new BABYLON.ShadowGenerator(512, light);
+    shadowGenerator00.getShadowMap().renderList.push(boxsh);
+    shadowGenerator00.useContactHardeningShadow = true;
+    shadowGenerator00.contactHardeningLightSizeUVRatio = 0.075;
+    boxsh.isVisible = true;*/
+            //var scalingFactor = new BABYLON.Vector3(5, 5, 5);
+            // meshTask.scaling = scalingFactor;
+            // meshTask.position.multiplyI﻿nPlace(scalingFactor);
+
+            /*meshTask.onSuccess = function (task) {
+                task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+                setTimeout(function () {
+                    engine.hideLoadingUI();
+                }, 15000);
+                document.getElementById("control").style.display = "block";
+            }*/
+            // meshTask.actionManager = new BABYLON.ActionManager(scene);
+            //alert("ali")
+
+            //prepareButton(meshTask, BABYLON.Color3.Red(), light);
+            //new
+            var grass2 = new BABYLON.StandardMaterial("grass2", scene);
+
+            grass2.diffuseColor = new BABYLON.Texture("hilux/body_01.jpg", scene);
+            var grass3 = new BABYLON.StandardMaterial("grass3", scene);
+            grass3.diffuseColor = new BABYLON.Texture("hilux/body02.jpg", scene);
+            var grass4 = new BABYLON.StandardMaterial("grass4", scene);
+            grass4.diffuseColor = new BABYLON.Texture("hilux/body.jpg", scene);
+            var grass5 = new BABYLON.StandardMaterial("grass5", scene);
+            grass2.diffuseColor = new BABYLON.Texture("hilux/seat_leather02.jpg.jpg", scene);
+            var grass6 = new BABYLON.StandardMaterial("grass6", scene);
+            grass6.diffuseColor = new BABYLON.Texture("hilux/seat_leather.jpg.jpg", scene);
+            var gallery = document.getElementById('gallery');
+            var baselink = document.getElementById('baselink');
+            var baselink02 = document.getElementById('baselink02');
+             var khaterat = document.getElementById('khaterat');
+             var contact = document.getElementById('contact');
+            //start here
+            khaterat.onclick = function () {
+                gallerynum2=1;
+               scene.getMaterialByName("narde").diffuseTexture = new BABYLON.Texture("image/gallery/pdf/en/"+gallerynum2+".jpg", scene);
+                galleryA(box,-2.5,0.3,-0.7);
+                 narde.isVisible = true;
+                 narde02.isVisible = false;
+                 box2.isVisible = false;
+                 box3.isVisible = false;
+                 box4.isVisible = true;
+                 box5.isVisible = true;
+            };
+            contact.onclick = function () {
+                //scene.getMaterialByName("narde02").diffuseTexture = new BABYLON.Texture("image/gallery/sal.jpg", scene);
+                galleryA(box,3.3,0.3,-0.7);
+                narde.isVisible = false;
+                 narde02.isVisible = true;
+                 TV.isVisible = false;
+                 box2.isVisible = true;
+                 box3.isVisible = true;
+                 box4.isVisible = false;
+                 box5.isVisible = false;
+                 
+            };
+            
+            gallery.onclick = function () {
+               
+                galleryA(box,2.02,0.7,-1.1);
+                narde.isVisible = false;
+                 narde02.isVisible = false;
+                 TV.isVisible = true;
+                 box2.isVisible = true;
+                 box3.isVisible = true;
+                 box4.isVisible = false;
+                 box5.isVisible = false;
+            };
+            baselink.onclick = function () {
+               
+galleryA(box,0,0.7,-3);
+ TV.isVisible = false;
+ narde.isVisible = false;
+ narde02.isVisible = false;
+ box2.isVisible = false;
+                 box3.isVisible = false;
+                 box4.isVisible = false;
+                 box5.isVisible = false;
+            };
+            baselink02.onclick = function () {
+               
+galleryA(box,0,0.7,-3);
+ TV.isVisible = false;
+ narde.isVisible = false;
+ box2.isVisible = false;
+                 box3.isVisible = false;
+                 box4.isVisible = false;
+                 box5.isVisible = false;
+            };
+            material3.onclick = function () {
+                //  scene.getMaterialByName("Body").diffuseTexture.dispose();
+                scene.getMaterialByName("Body").diffuseTexture = new BABYLON.Texture("hilux/body.jpg", scene);
+                scene.getMaterialByName("Seat_leather02").diffuseTexture = new BABYLON.Texture("hilux/seat_leather.jpg", scene);
+                scene.getMaterialByName("Seat_leather").diffuseTexture = new BABYLON.Texture("hilux/seat_leather.jpg", scene);
+
+            };
+            //end
+            var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 0.2, scene);
+            sphere.position.x = 2;
+            /* meshTask.actionManager = new BABYLON.ActionManager(scene);
+             meshTask.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+                 alert('sphere clicked');
+             }));*/
+
+
+            // Move the light with the camera
+            scene.registerBeforeRender(function () {
+                // light.position = camera.position;
+                // console.log("camera pos:"+camera.position);
+            });
+
+            assetsManager.onFinish = function (tasks) {
+                engine.runRenderLoop(function () {
+                    scene.render();
+                });
+            };
+
+            assetsManager.load();
+
+
+
+            return scene;
+        }
+
+        var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
+        var scene = createScene();
+
+        engine.runRenderLoop(function () {
+            if (scene) {
+                scene.render();
+            }
+        });
+
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+        var setCamDefault = function () {
+            cam = scene.activeCamera;
+            targetEndPos = new BABYLON.Vector3(0, 0, 0);
+            camEndPos = new BABYLON.Vector3(-45, 55, -45);
+            console.log("scd.  cam.position: ", cam.position);
+            console.log("scd.  camEndPos: ", camEndPos);
+            console.log("scd.  speed: ", speed);
+            console.log("scd.  frameCount: ", frameCount);
+            // console.log("actp.  frameCount: ", frameCount);
+            // console.log("actp.  newPos: ", newPos);
+            BABYLON.Animation.CreateAndStartAnimation('at4', cam, 'position', speed, frameCount, cam.position, camEndPos, 0, ease);
+            BABYLON.Animation.CreateAndStartAnimation('at5', cam, 'target', speed, frameCount, cam.target, targetEndPos, 0, ease);
+            console.log("setCamDefault run");
+        };
+        var zoom = function (cam, tar) {
+
+            var targetEndPos = tar.getAbsolutePosition();
+            var camEndPos = tar.getAbsolutePosition();
+            var speed = 45;
+            var ease = new BABYLON.CubicEase();
+
+            tar.computeWorldMatrix();
+            var matrix = tar.getWorldMatrix(true);
+            var local_position = new BABYLON.Vector3(0, 0, 0);
+            var yaw01 = 0.5 * Math.PI;
+            var pitch01 = 1 * 2 * Math.PI;
+            var roll01 = 1 * 2 * Math.PI;
+            var local_rotate = new BABYLON.Vector3(yaw01, pitch01, roll01);
+            local_position.addInPlace(new BABYLON.Vector3(0, 0, -5));
+            var global_position = BABYLON.Vector3.TransformCoordinates(local_position, matrix);
+            console.log(global_position);
+            // cam.position = global_position;
+            // cam.parent = tar;
+
+            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
+            // BABYLON.Animation.CreateAndStartAnimation('at4', cam, 'position', speed, 120, cam.position, global_position, 0, ease);
+            // BABYLON.Animation.CreateAndStartAnimation('at5', cam, 'target', speed, 120, cam.target, targetEndPos, 0, ease);
+            //BABYLON.Animation.CreateAndStartAnimation('at6', cam, 'rotation', speed, 120, cam.rotation, local_rotate, 0, ease);
+            //new
+
+
+            BABYLON.Animation.CreateAndStartAnimation('at5', cam, 'target', speed, 120, cam.target, tar.position, 0, ease);
+            BABYLON.Animation.CreateAndStartAnimation('at5', cam, 'radius', speed, 240, cam.radius, 12, 0, ease);
+            BABYLON.Animation.CreateAndStartAnimation('at5', cam, 'rotation', speed, 120, cam.rotation, local_rotate, 0, ease);
+            //end new
+            // cam.lockedTarget = tar;
+            //color event************************************************************
+
+        };
+        ;
+    </script>
+    <link rel="stylesheet" href="http://mrfarokh.ir/css/style.css">
+    </p>
+</body>
+
+</html>
