@@ -1065,7 +1065,7 @@
         {
           "attributes": {
             "NORMAL": 15,
-            "POSITION": 14,
+            "POSITION": 24,
             "TANGENT": 16,
             "TEXCOORD_0": 17
           },

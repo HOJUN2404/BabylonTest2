@@ -57,10 +57,25 @@
 
               var gallerynum = 3;
 
+              
+              const frame1 = BABYLON.MeshBuilder.CreateBox("frame1", {width: 0.5, height: 0.5, depth: 0.1}, scene);
+              frame1.position = new BABYLON.Vector3(-1,1,1,1);
+
+              // const frame2 = BABYLON.MeshBuilder.CreateBox("frame1", {width: 0.5, height: 0.5, depth: 0.1}, scene);
+              
+
+              // const frame2 = BABYLON.MeshBuilder.CreateBox("frame1", {width: 0.5, height: 0.5, depth: 0.1}, scene);
+              // frame2.position = new BABYLON.Vector3(1,1,2,2);
+
               // 박스에 버튼 변경
               box = BABYLON.Mesh.CreateBox("box", 0.5, scene);
               box.position = new BABYLON.Vector3(0, 0.7, 3);
               // boxMaterial.diffuseTexture = new BABYLON.Texture("Image/2.jpg", scene);
+
+              // frame1Material = new BABYLON.StandardMaterial("f1", scene);
+              // frame1Material.diffuseTexture = new BABYLON.Texture("Image/"+gallerynum+".jpg", scene);
+              // frame1.material=frame1Material;
+
 
               //box data
               box2 = BABYLON.Mesh.CreateBox("box1", 0.5, scene);
@@ -75,6 +90,7 @@
               var box3Material = new BABYLON.StandardMaterial("bx3m", scene);
               box3Material.diffuseTexture = new BABYLON.Texture("image/next.jpg", scene);
 
+              
               box.material=boxMaterial;
               box2.material=box2Material;
               box3.material=box3Material;
@@ -87,6 +103,12 @@
               box2.scaling.z = 0.01;
               box3.scaling = box2.scaling;
               // 박스 버튼 변경 끝 
+
+              // box 는 그림 클릭 시 링크 이동 예제
+              box.actionManager = new BABYLON.ActionManager(scene);
+              box.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+                window.open("https://www.naver.com");            
+              }));
 
               // box2 는 왼쪽 버튼 
               box2.actionManager = new BABYLON.ActionManager(scene);
@@ -118,7 +140,7 @@
               const camera = new BABYLON.ArcRotateCamera("Camera", alpha, beta, radius, target, scene);
               camera.attachControl(canvas, true);
   
-              const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
+              const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 10));
   
               BABYLON.SceneLoader.Append("scene62/", "scene.gltf", scene, function(scene) {
                 scene.createDefaultCameraOrLight(true, true, true);
@@ -128,6 +150,7 @@
                 scene.createDefaultCameraOrLight(true, true, true);
               });
 
+              scene.addLight(light);
 
               // const box = BABYLON.MeshBuilder.CreateBox("box", {});
               // box.position.x = 0.5;
@@ -165,3 +188,5 @@
     <!-- 바빌론 테스트 끝 -->
   </body>
 </html>
+
+
